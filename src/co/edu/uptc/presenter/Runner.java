@@ -1,28 +1,30 @@
 package co.edu.uptc.presenter;
 
-import co.edu.uptc.interfeces.ModelInterface;
-import co.edu.uptc.interfeces.PresenterInterface;
-import co.edu.uptc.interfeces.ViewInterfece;
-import co.edu.uptc.model.ModelSum;
-import co.edu.uptc.view.ViewSum;
+import co.edu.uptc.interfaces.ModelInterface;
+import co.edu.uptc.interfaces.PresenterInterface;
+import co.edu.uptc.interfaces.ViewInterface;
+import co.edu.uptc.model.NumberSum;
+import co.edu.uptc.view.ConsoleView;
 
 public class Runner {
-    private ViewInterfece view;
-    private ModelInterface model;
-    private PresenterInterface presenter;
+    PresenterInterface presenter;
+    ModelInterface model;
+    ViewInterface view;
+
+
     private void makeMVP(){
-         model = new ModelSum();
-         presenter = new PresenterMain();
-        view = new ViewSum();
+        presenter = new MainPresenter();
+        model = new NumberSum();
+        view = new ConsoleView();
 
-        presenter.setView(view);
         presenter.setModel(model);
+        presenter.setView(view);
         view.setPresenter(presenter);
-
     }
 
     public void start(){
         makeMVP();
-        view.readInfo();
+        view.start();
     }
+
 }

@@ -1,7 +1,8 @@
 import co.edu.uptc.presenter.Runner;
+import co.edu.uptc.view.ConsoleView;
 
-public class Main {
-    public static void main(String[] ppp){
+public class Main{
+    static void main() {
         Runner runner = new Runner();
         runner.start();
     }
